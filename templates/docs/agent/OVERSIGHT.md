@@ -24,3 +24,11 @@ DURING  slices not files | batch independent calls | background long jobs, act o
 4. Review at checkpoints (above), not in the transcript.
 5. Interrupt early: watch the first five minutes of a unit, then step back.
 6. Get pinged (Notification hook) so you return while the cache is warm.
+
+## The other fix: typed judgments at decision points (Part 2)
+Oversight mode makes you a faster decision-maker. The next step removes most of the decisions.
+Put a cheap typed judgment at each decision point in the agent's loop: route a question, classify
+a red test run, decide whether a unit is done. Each answer is a fixed label with a confidence score.
+High confidence: the agent acts. Low confidence: the lead model reasons it through. Only money,
+irreversible actions and the objective reach you. I use Jev (TypeSafe) for this; Part 2 covers the
+setup, the alternatives, and templates in `loop/`.

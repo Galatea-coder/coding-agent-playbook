@@ -84,7 +84,7 @@ Checked against the Claude Code docs in October 2026. These surfaces change, so 
 
 ## Coming next
 
-`loop/`: Part 2, loop engineering with typed judgments at each decision point of the agent's loop.
+`loop/`: Part 2, loop engineering. A cheap typed judgment with a confidence score at each decision point of the agent's loop, so routine calls stop reaching you. Worked example: Jev (TypeSafe). It's also the other fix for oversight mode (see `templates/docs/agent/OVERSIGHT.md`).
 
 ## Licence
 
