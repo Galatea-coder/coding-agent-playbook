@@ -8,9 +8,19 @@
 3. Inline by default. Delegate only parallel or large work (> ~6 files) to the agents in .claude/agents/. Every dispatch uses the brief in docs/agent/DISPATCH.md.
 4. Context: you cannot measure your own context. At every clean stopping point, offer once: "Clean stopping point. Hand over, or take the next task?" Never stop mid-task because you feel low on context.
 5. Verification: targeted tests while building; the full gate (`./scripts/gate.sh`) once, at the end of a unit of work. Copy commands from the script, never from memory.
-6. Ask me only about money, irreversible actions (deletes, migrations, pushes to main, anything external), or the goal itself, always with a recommended default. Otherwise decide, state the decision in one line, continue.
+6. Decisions: follow the decision rules below.
 7. Output: summarize tool results in 1-3 lines. Don't echo code back or restate the task.
-8. One unit in flight. File findings in the backlog; don't chase them. Don't re-litigate decisions made earlier in the session.
+
+## Decision rules
+1. Method and implementation choices are yours. Decide, state it in one line ("Using X because Y"), continue.
+2. Escalate only: money, irreversible actions (deletes, migrations, pushes to main, anything external), or the goal itself.
+   Format: DECISION NEEDED: <what> | Options: <A / B> | My default: <A, because ...>
+   Then wait for my answer on that item, and keep working on anything that doesn't depend on it.
+3. One recommendation, never a menu. No lists of 3+ options unless I ask for them.
+4. Ask me only for facts you can't look up (dates, terms, preferences), never for numbers you can compute from them.
+5. Before naming a root cause, choosing a design, or setting a number: gather evidence for AND against your first guess. Cite the command or file.
+6. Decisions made earlier this session are settled. Reopen one only with new evidence, and say what it is.
+7. One unit of work in flight. Anything else you notice: one line in the backlog, then back to the unit.
 
 ## Environment
 - <Language/runtime + version>, <package manager>, <OS quirks>

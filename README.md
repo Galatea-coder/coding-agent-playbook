@@ -29,11 +29,12 @@ Then:
 
 | File | What it does | Why |
 | --- | --- | --- |
-| `templates/CLAUDE.md` | Always-loaded rules: golden rules, env, commands, a one-line **rule index** | Every line here is paid for on every session |
+| `templates/CLAUDE.md` | Always-loaded rules: golden rules, **decision rules**, env, commands, a one-line **rule index** | Every line here is paid for on every session |
 | `templates/RULES.md` | Full rule text, read one rule at a time by number | On-demand, not always-loaded. `@imports` don't save tokens; they load eagerly |
 | `templates/docs/agent/HANDOVER.template.md` | Handover file with Highlight, **Owner** and **Context at close** lines | A handover beats auto-compaction: you choose what survives |
 | `templates/docs/agent/RESUME.template.md` | Six-part resume prompt, under 1,200 characters | The new session starts warm and never has to ask |
 | `templates/docs/agent/DISPATCH.md` | Brief for every subagent: task, scope, done-when, report cap | Subagents aren't free; unbounded reports are file dumps |
+| `templates/docs/agent/DECISION-RULES.md` | Before/after examples of the CLAUDE.md decision rules, and how to check they work | Most agent questions it could answer itself; most rework comes from unresearched decisions |
 | `templates/docs/agent/OVERSIGHT.md` | Owner's checkpoint review, session checklist, oversight mode | Oversee units of work, not keystrokes |
 | `templates/.claude/agents/` | `scout` (haiku), `implementer` (sonnet), `verifier` (inherit) | Subagents inherit the lead's model unless you name one |
 | `templates/.claude/hooks/guard-read.sh` | PreToolUse: blocks whole-file reads over 400 lines | Map, grep, then read a slice, enforced rather than requested |
