@@ -2,7 +2,7 @@
 
 **Your coding agent isn't expensive. Your context is.**
 
-Drop-in templates for running AI coding agents with less context, fewer tokens and better supervision. They come out of three months of building a real codebase almost entirely with coding agents, after I found that most of my usage was running with more than 150k tokens in context.
+Drop-in templates for running AI coding agents with less context, fewer tokens and better oversight. They come out of three months of building a real codebase almost entirely with coding agents, after I found that most of my usage was running with more than 150k tokens in context.
 
 Built for Claude Code. The ideas port to AGENTS.md, Cursor and Codex (see [Portability](#portability)).
 
@@ -31,10 +31,10 @@ Then:
 | --- | --- | --- |
 | `templates/CLAUDE.md` | Always-loaded rules: golden rules, env, commands, a one-line **rule index** | Every line here is paid for on every session |
 | `templates/RULES.md` | Full rule text, read one rule at a time by number | On-demand, not always-loaded. `@imports` don't save tokens; they load eagerly |
-| `templates/docs/agent/HANDOVER.template.md` | Handover file with Highlight, **Supervisor** and **Context at close** lines | A handover beats auto-compaction: you choose what survives |
+| `templates/docs/agent/HANDOVER.template.md` | Handover file with Highlight, **Owner** and **Context at close** lines | A handover beats auto-compaction: you choose what survives |
 | `templates/docs/agent/RESUME.template.md` | Six-part resume prompt, under 1,200 characters | The new session starts warm and never has to ask |
 | `templates/docs/agent/DISPATCH.md` | Brief for every subagent: task, scope, done-when, report cap | Subagents aren't free; unbounded reports are file dumps |
-| `templates/docs/agent/SUPERVISOR.md` | Checkpoint review, session checklist, supervisory mode | Supervise units of work, not keystrokes |
+| `templates/docs/agent/OVERSIGHT.md` | Owner's checkpoint review, session checklist, oversight mode | Oversee units of work, not keystrokes |
 | `templates/.claude/agents/` | `scout` (haiku), `implementer` (sonnet), `verifier` (inherit) | Subagents inherit the lead's model unless you name one |
 | `templates/.claude/hooks/guard-read.sh` | PreToolUse: blocks whole-file reads over 400 lines | Map, grep, then read a slice, enforced rather than requested |
 | `templates/.claude/hooks/session-start.sh` | SessionStart: injects the latest handover (capped at 6 KB) | `/clear` without losing the thread |
@@ -57,7 +57,7 @@ Then:
 8. Keep CLAUDE.md under about 150 lines with a rule index. Don't fake the split with `@imports`.
 9. Copy verification steps from the gate; run the command you cite.
 10. Budget your process. If half your commits are paperwork, the paperwork is the product.
-11. Supervise units of work, not keystrokes: approve the plan, allowlist the safe, fence the dangerous, review at checkpoints, get pinged.
+11. Oversee units of work, not keystrokes: approve the plan, allowlist the safe, fence the dangerous, review at checkpoints, get pinged.
 12. Escalate only money, irreversible actions and the objective, with a default. Recommend and proceed; one unit in flight.
 
 ## Compatibility notes
@@ -80,7 +80,7 @@ Checked against the Claude Code docs in October 2026. These surfaces change, so 
 | Context gauge | Status line | Built-in meters, or hand over by turn count |
 | Read discipline | PreToolUse hook | Approval rules, or a golden rule plus review |
 | Model routing | `model:` in agent files | Per-agent or per-mode model settings |
-| Supervision | Plan mode, allowlist, Stop/Notification hooks | Plan/ask modes, command allowlists, CI as the gate |
+| Oversight | Plan mode, allowlist, Stop/Notification hooks | Plan/ask modes, command allowlists, CI as the gate |
 
 ## Coming next
 

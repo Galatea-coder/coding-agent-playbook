@@ -1,7 +1,7 @@
-# Supervisor's checklists
+# Oversight checklists
 
-## Checkpoint review (2 minutes per unit)
-- [ ] Handover Supervisor line: decisions needed? anything decided for me I disagree with?
+## Owner's checkpoint review (2 minutes per unit)
+- [ ] Handover Owner line: decisions needed? anything decided for me I disagree with?
 - [ ] Diff: size matches the plan? files touched outside declared scope?
 - [ ] Gate: green, run once, at the end? test count went up, not down?
 - [ ] Claims: one cited number or command re-run myself
@@ -17,7 +17,7 @@ DURING  slices not files | batch independent calls | background long jobs, act o
         -> commit, push, CI green -> /clear (never drift into auto-compaction)
 ```
 
-## Supervisory mode in six moves
+## Oversight mode in six moves
 1. Approve the plan (plan mode), not every step.
 2. Allowlist the safe, deny the dangerous, fence auto-approval with backups.
 3. Escalation contract: money, irreversible actions, the objective. Always with a default.

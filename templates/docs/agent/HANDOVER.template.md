@@ -1,7 +1,7 @@
 # Handover: <YYYY-MM-DD HH:MM> - <unit of work, 5 words>
 
 **Highlight:** <the one thing that matters most from this session>
-**Supervisor:** <decisions needed from me, with your default> | <anything decided on my behalf> | <risks>
+**Owner:** <decisions needed from me, with your default> | <anything decided on my behalf> | <risks>
 **Context at close:** <e.g. 190k>
 
 ## State
